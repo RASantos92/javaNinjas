@@ -30,7 +30,8 @@
                             <td><a href="/ninjas/${ninja.id}">${ninja.name}</a></td>
                             <td>${ninja.hometown}</td>
                             <td>${ninja.level}</td>
-                            <td><a href="/ninja/destroy/${ninja.id}">Delete</a></td>
+                            <td><a href="/ninja/destroy/${ninja.id}">Delete</a>
+                            <a href="ninja/show/${ninja.id}">||Show</a></td>
                         </tr>
                     </c:forEach>
                 </table>

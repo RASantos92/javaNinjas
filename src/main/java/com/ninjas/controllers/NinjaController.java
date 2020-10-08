@@ -64,4 +64,10 @@ public class NinjaController {
 		ninserv.destroy(singleNinja, id);
 		return "redirect:/";
 	}
+
+	@GetMapping("ninja/show/{id}")
+	public String show(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("ninja", ninserv.getOne(id));
+		return "show.jsp";
+	}
 }
