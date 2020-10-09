@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,8 +26,8 @@ public class Ninja {
 	private String name;
 	@Size(min = 2, message = "Name must be 2 characters or longer!")
 	private String hometown;
-
-	private String level;
+	@Min(value = 0, message = "Power level must be greater than 0!")
+	private Integer level;
 
 	public String getName() {
 		return name;
@@ -44,11 +45,11 @@ public class Ninja {
 		this.hometown = hometown;
 	}
 
-	public String getLevel() {
+	public Integer getLevel() {
 		return level;
 	}
 
-	public void setLevel(String level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 

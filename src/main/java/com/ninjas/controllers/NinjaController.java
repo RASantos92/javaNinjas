@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ninjas.models.Ninja;
 import com.ninjas.services.NinjaService;
@@ -23,8 +24,12 @@ public class NinjaController {
 	}
 
 	@GetMapping("/")
-	public String index(Model model) {
-		model.addAttribute("ninjas", ninserv.getAll());
+	public String index(@RequestParam(value = "search", required = false) String search, Model model) {
+		if (search == null) {
+			model.addAttribute("ninjas", ninserv.getAll());
+		} else {
+			model.addAttribute("ninjas", ninserv.search(search));
+		}
 		model.addAttribute("newNinja", new Ninja());
 		return "index.jsp";
 	}
@@ -69,5 +74,11 @@ public class NinjaController {
 	public String show(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("ninja", ninserv.getOne(id));
 		return "show.jsp";
+	}
+
+	@GetMapping("/ninjas/top/3")
+	public String top3(Model model) {
+		model.addAttribute("ninjas", ninserv.top3NinjasWoah());
+		return "topNinjas.jsp";
 	}
 }

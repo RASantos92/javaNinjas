@@ -1,3 +1,4 @@
+
 package com.ninjas.services;
 
 import java.util.List;
@@ -41,6 +42,14 @@ public class NinjaService {
 
 	public void destroy(Ninja toDelete, Long id) {
 		ninjaRepo.delete(toDelete);
+	}
+
+	public List<Ninja> top3NinjasWoah() {
+		return ninjaRepo.top3NinjasWoah();
+	}
+
+	public List<Ninja> search(String search) {
+		return ninjaRepo.findByNameContaining(search);
 	}
 
 }

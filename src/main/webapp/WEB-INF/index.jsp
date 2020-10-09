@@ -18,6 +18,11 @@
         <img src="/imgs/ninja.jpg" alt="ninja pic" class="rounded mx-auto d-block" style="height:450px; width:500px"/>
         <div class="row mt-5">
             <div class="col-sm-8">
+        <a href="/ninjas/top/3">Show me the best ninjas</a>
+        		<form action="/" method="get">
+        			<input type="text" placeholder="search" name="search"/>
+        			<input type="submit" value="search" class="btn btn-info"/>
+        		</form>
                 <table class="table table-striped">
                     <tr>
                         <th>Name</th>
@@ -51,12 +56,8 @@
 		            </div>
 		            <div class="form-group">
 		                <label>Level:</label>
-		                <select name="level" class="form-control">
-		                    <option>Master</option>
-		                    <option>Senior</option>
-		                    <option>Junior</option>
-		                    <option>Apprentice</option>
-		                </select>
+		                <form:input path="level" type="number" class="form-control"/>
+		                <form:errors path="level" class="text-danger"/>
 		            </div>
 		            <input type="submit" value="Add Ninja" class="btn btn-outline-dark" />
 		        </form:form>

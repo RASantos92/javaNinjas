@@ -28,13 +28,10 @@
 				<form:errors path="hometown" class="text-danger" />
 			</div>
 			<div class="form-group">
-				<label>Level:</label> <select name="level" class="form-control">
-					<option>Master</option>
-					<option>Senior</option>
-					<option>Junior</option>
-					<option>Apprentice</option>
-				</select>
-			</div>
+		                <label>Level:</label>
+		                <form:input path="level" type="number" class="form-control"/>
+		                <form:errors path="level" class="text-danger"/>
+		            </div>
 			<input type="submit" value="Edit Ninja" class="btn btn-outline-dark" />
 		</form:form>
 		</div>
